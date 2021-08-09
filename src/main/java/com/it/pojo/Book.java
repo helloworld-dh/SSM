@@ -3,15 +3,15 @@ package com.it.pojo;
 public class Book {
     private long bookId;
     private String bookName;
-    private int number;
+    private int bookNumber;
 
     public Book() {
     }
 
-    public Book(long bookId, String bookName, int number) {
+    public Book(long bookId, String bookName, int bookNumber) {
         this.bookId = bookId;
         this.bookName = bookName;
-        this.number = number;
+        this.bookNumber = bookNumber;
     }
 
     public long getBookId() {
@@ -31,11 +31,11 @@ public class Book {
     }
 
     public int getNumber() {
-        return number;
+        return bookNumber;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber(int bookNumber) {
+        this.bookNumber = bookNumber;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Book {
         return "Book{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
-                ", number=" + number +
+                ", number=" + bookNumber +
                 '}';
     }
 }

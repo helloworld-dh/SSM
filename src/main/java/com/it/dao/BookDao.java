@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BookDao {
 
-    public Book queryById(int id);
+    public Book queryById(@Param("bookId") int id);
 
     public List<Book> queryAll(@Param("offset") int offset, @Param("limit") int limit);
 
