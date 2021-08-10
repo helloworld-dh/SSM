@@ -11,6 +11,6 @@ public interface BookDao {
 
     public List<Book> queryAll(@Param("offset") int offset, @Param("limit") int limit);
 
-    int deleteNumber(int id);
+    int deleteNumber(@Param("bookId") int id);
 
 }

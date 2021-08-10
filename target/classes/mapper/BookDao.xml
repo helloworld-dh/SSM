@@ -9,6 +9,16 @@
         from bookstore.book
         where book_id=#{bookId}
     </select>
-
+    <select id="queryAll" resultType="Book">
+        select *
+        from bookstore.book
+        order by book_id
+        limit #{offset},#{limit}
+    </select>
+    <delete id="deleteNumber">
+        delete
+        from bookstore.book
+        where book_id=#{bookId}
+    </delete>
 </mapper>
 
