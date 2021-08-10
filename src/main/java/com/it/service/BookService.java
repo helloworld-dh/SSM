@@ -1,14 +1,25 @@
 package com.it.service;
 
+import com.it.dto.AppointExecution;
 import com.it.pojo.Book;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface BookService {
-    public Book queryById(int id);
 
-    public List<Book> queryAll(int offset, int limit);
+    /*
+    * 查询一本书
+    * */
+    public Book queryById(long bookId);
 
-    int deleteNumber(int id);
+    /*
+    * 查询所有书
+    * */
+    public List<Book> queryAll();
+
+    /*
+    * 预约书
+    * */
+    public AppointExecution appoint(long bookId, long studentId);
 }

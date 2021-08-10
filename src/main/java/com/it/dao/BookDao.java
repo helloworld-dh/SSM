@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface BookDao {
 
-    public Book queryById(@Param("bookId") int id);
+    public Book queryById(@Param("bookId") long id);
 
-    public List<Book> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+    public List<Book> queryAll(@Param("offset") long offset, @Param("limit") long limit);
 
-    int deleteNumber(@Param("bookId") int id);
+    int deleteNumber(@Param("bookId") long id);
 
 }

@@ -14,6 +14,12 @@ public class Appointment {
     public Appointment() {
     }
 
+    public Appointment(long bookId, long studentId, Date appointTime) {
+        this.bookId = bookId;
+        this.studentId = studentId;
+        this.appointTime = appointTime;
+    }
+
     public Appointment(long bookId, long studentId, Date appointTime, Book book) {
         this.bookId = bookId;
         this.studentId = studentId;

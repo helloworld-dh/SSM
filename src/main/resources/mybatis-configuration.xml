@@ -15,6 +15,7 @@
     </typeAliases>
     <mappers>
         <mapper resource="mapper/BookDao.xml"></mapper>
+        <mapper resource="mapper/AppointmentDao.xml"></mapper>
     </mappers>
 
 </configuration>
