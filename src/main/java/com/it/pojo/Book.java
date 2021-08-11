@@ -30,11 +30,11 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public int getNumber() {
+    public int getBookNumber() {
         return bookNumber;
     }
 
-    public void setNumber(int bookNumber) {
+    public void setBookNumber(int bookNumber) {
         this.bookNumber = bookNumber;
     }
 
@@ -43,7 +43,7 @@ public class Book {
         return "Book{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
-                ", number=" + bookNumber +
+                ", bookNumber=" + bookNumber +
                 '}';
     }
 }

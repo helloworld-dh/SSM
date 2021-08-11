@@ -15,9 +15,31 @@
         order by book_id
         limit #{offset},#{limit}
     </select>
-    <delete id="deleteNumber">
-        delete
+    <update id="reduceNumber">
+        update bookstore.book
+        set book_number =book_number -1
+        where book_id = #{bookId} and book_number >0
+    </update>
+
+    <select id="queryBookByName" resultType="Book">
+        select *
         from bookstore.book
+        where book_name=#{bookName}
+    </select>
+
+    <update id="updateBook" parameterType="Book">
+        update bookstore.book
+        set book_name=#{bookName},book_number=#{bookNumber}
+        where book_id = #{bookId}
+    </update>
+
+    <insert id="addBook" parameterType="Book">
+        insert into bookstore.book(book_name,book_number)
+        values (#{bookName},#{bookNumber})
+    </insert>
+
+    <delete id="deleteBookById">
+        delete from bookstore.book
         where book_id=#{bookId}
     </delete>
 </mapper>

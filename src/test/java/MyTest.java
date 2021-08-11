@@ -1,5 +1,6 @@
 import com.it.dao.AppointmentDao;
 import com.it.dao.BookDao;
+import com.it.dto.AppointExecution;
 import com.it.pojo.Appointment;
 import com.it.pojo.Book;
 import com.it.service.BookService;
@@ -25,6 +26,9 @@ public class MyTest {
     @Autowired
     private AppointmentDao appointmentDao;
 
+    @Autowired
+    private BookService bookService;
+
     @Test
     public void testQueryById(){
         long bookId=1000;
@@ -40,6 +44,13 @@ public class MyTest {
     }
 
     @Test
+    public void testReduceNumber(){
+        long bookId = 1000;
+        int update = bookDao.reduceNumber(bookId);
+        System.out.println(update);
+    }
+
+    @Test
     public void testInsertAppointment(){
         long bookId = 1000;
         long studentId = 12345;
@@ -50,10 +61,25 @@ public class MyTest {
     @Test
     public void testQueryByKeyWithBook(){
         long bookId = 1000;
-        long studentId = 12345;
+        long studentId = 1;
         Appointment appointment = appointmentDao.queryByKeyWithBook(bookId, studentId);
         System.out.println(appointment);
         System.out.println(appointment.getBook());
+    }
+
+    @Test
+    public void testAppoint(){
+        long bookId =1002;
+        long studentId = 2;
+        AppointExecution execution = bookService.appoint(bookId, studentId);
+        System.out.println(execution);
+    }
+
+    @Test
+    public void testUpdateBook(){
+        Book book = new Book(1005,"操作系统",14);
+        int update = bookService.updateBook(book);
+        System.out.println(update);
     }
 
 }

@@ -22,4 +22,25 @@ public interface BookService {
     * 预约书
     * */
     public AppointExecution appoint(long bookId, long studentId);
+
+    /*
+    * 通过书名查询书
+    * */
+    public Book queryBookByName(String bookName);
+
+    /*
+    * 更新书
+    * */
+    public int updateBook(Book book);
+
+    /*
+    * 添加一本书
+    * */
+    public int addBook(Book book);
+
+    /*
+    * 通过ID删除一本书
+    * */
+    public int deleteBookById(int bookId);
+
 }

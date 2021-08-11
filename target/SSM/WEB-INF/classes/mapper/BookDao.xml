@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.it.dao.BookDao">
+    <select id="queryById" resultType="Book">
+        select *
+        from bookstore.book
+        where book_id=#{bookId}
+    </select>
+    <select id="queryAll" resultType="Book">
+        select *
+        from bookstore.book
+        order by book_id
+        limit #{offset},#{limit}
+    </select>
+    <update id="reduceNumber">
+        update bookstore.book
+        set book_number =book_number -1
+        where book_id = #{bookId} and book_number >0
+    </update>
+
+    <select id="queryBookByName" resultType="Book">
+        select *
+        from bookstore.book
+        where book_name=#{bookName}
+    </select>
+
+    <update id="updateBook" parameterType="Book">
+        update bookstore.book
+        set book_name=#{bookName},book_number=#{bookNumber}
+        where book_id = #{bookId}
+    </update>
+
+    <insert id="addBook" parameterType="Book">
+        insert into bookstore.book(book_name,book_number)
+        values (#{bookName},#{bookNumber})
+    </insert>
+
+    <delete id="deleteBookById">
+        delete from bookstore.book
+        where book_id=#{bookId}
+    </delete>
+</mapper>
+

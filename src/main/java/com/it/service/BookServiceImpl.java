@@ -40,7 +40,7 @@ public class BookServiceImpl implements BookService{
 
         try {
             //减库存
-            int delete = bookDao.deleteNumber(bookId);
+            int delete = bookDao.reduceNumber(bookId);
             if (delete<0){
                 //库存不足
                 throw new NoNumberException("no number");
@@ -63,5 +63,29 @@ public class BookServiceImpl implements BookService{
         }catch (Exception e){
             throw new AppointException("appoint inner error:" +e.getMessage());
         }
+    }
+
+    @Override
+    public Book queryBookByName(String bookName) {
+        Book book = bookDao.queryBookByName(bookName);
+        return book;
+    }
+
+    @Override
+    public int updateBook(Book book) {
+        int update = bookDao.updateBook(book);
+        return update;
+    }
+
+    @Override
+    public int addBook(Book book) {
+        int add = bookDao.addBook(book);
+        return add;
+    }
+
+    @Override
+    public int deleteBookById(int bookId) {
+        int delete = bookDao.deleteBookById(bookId);
+        return delete;
     }
 }

@@ -11,6 +11,14 @@ public interface BookDao {
 
     public List<Book> queryAll(@Param("offset") long offset, @Param("limit") long limit);
 
-    int deleteNumber(@Param("bookId") long id);
+    public int reduceNumber(@Param("bookId") long id);
+
+    public Book queryBookByName(@Param("bookName") String bookName);
+
+    public int updateBook(Book book);
+
+    public int addBook(Book book);
+
+    public int deleteBookById(@Param("bookId") int id);
 
 }
